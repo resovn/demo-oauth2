@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>03-2-token-store-db-authorization-server</artifactId>
+    <packaging>jar</packaging>
+
+    <parent>
+        <groupId>com.hcy308</groupId>
+        <artifactId>demo-oauth2</artifactId>
+        <version>1.0</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+
+    <properties>
+        <flywaydb.version>5.2.4</flywaydb.version>
+        <druid.spring.boot.version>1.1.10</druid.spring.boot.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.hcy308</groupId>
+            <artifactId>03-1-token-store-db-common</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>${flywaydb.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!--<finalName>02-1-authorization-server-jwt</finalName>-->
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <profiles>
+                        <profile>test</profile>
+                        <profile>prod</profile>
+                    </profiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,28 @@
+package com.hcy308.oauth2.web.controller;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/sqr/")
+public class SquirrelController {
+
+    @GetMapping("/product/{id}")
+    public String getProduct(@PathVariable String id) {
+        @SuppressWarnings("unused")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "product id : " + id;
+    }
+
+    @GetMapping("/order/{id}")
+    public String getOrder(@PathVariable String id) {
+        @SuppressWarnings("unused")
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return "order id : " + id;
+    }
+
+}

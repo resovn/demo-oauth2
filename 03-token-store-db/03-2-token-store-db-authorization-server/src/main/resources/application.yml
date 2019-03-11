@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+
+##################### MySQL #####################
+jdbc:
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://maven.rd.mt:3306/oauth2-token-store?useUnicode=true&characterEncoding=utf-8&autoReconnect=true
+  user: root
+  pass: 123456
+
+flyway:
+  locations: db/migration/mysql
+  baseline-on-migrate: true
